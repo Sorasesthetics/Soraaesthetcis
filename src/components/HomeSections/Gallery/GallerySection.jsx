@@ -1,19 +1,16 @@
+import { useEffect, useState } from "react"
 import Container from "../../ui/Container"
 
-const placeholderImages = [
-  "/hijab1.jpg",
-  "/nails.jpg",
-  "/bride.jpg",
-  "/facial2.jpg",
-  "/pic.jpg",
-  "/pic2.jpg",
-  "/facial.png",
-  "/pic3.jpg",
-  "/pic6.png",
-  "/pic5.png",
-]
-
 const GallerySection = () => {
+  const [images, setImages] = useState([])
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8001/gallery/")
+      .then(res => res.json())
+      .then(data => setImages(data))
+      .catch(err => console.error(err))
+  }, [])
+
   return (
     <section className="py-24 bg-white">
       <Container>
@@ -41,14 +38,14 @@ const GallerySection = () => {
 
         {/* GRID */}
         <div className="flex flex-wrap gap-6 justify-center">
-          {placeholderImages.map((img, index) => (
+          {images.map((item, index) => (
             <div
               key={index}
               className="w-[241.6px] h-[241.6px] rounded-[24px] overflow-hidden group cursor-pointer"
             >
               <img
-                src={img}
-                alt=""
+                src={item.media_url}
+                alt={item.caption}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
