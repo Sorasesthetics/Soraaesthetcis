@@ -118,7 +118,7 @@ const VisitSection = () => {
               rel="noopener noreferrer"
               className="bg-[var(--color-primary)] text-white py-3 sm:py-4 lg:py-5 px-8 sm:px-12 lg:px-20 rounded-[18px] sm:rounded-[24px] font-semibold text-sm sm:text-base lg:text-lg w-fit text-center"
             >
-              Book
+              {t("visit.button")}
             </a>
 
           </div>

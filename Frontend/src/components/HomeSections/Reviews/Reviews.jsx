@@ -76,7 +76,7 @@ const Reviews = () => {
               onClick={() => setIsModalOpen(true)}
               className="mt-8 lg:mt-10 bg-[var(--color-primary)] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 transition text-sm sm:text-base"
             >
-              Leave a Review
+              {t("reviews.leaveButton")}
             </button>
           </div>
 
@@ -149,7 +149,7 @@ const Reviews = () => {
             </button>
 
             <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center text-[var(--color-primary-soft)]">
-              Leave Your Review
+              {t("reviews.modalTitle")}
             </h3>
 
             <AddReview onSuccess={() => setIsModalOpen(false)} />

@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 const AddReview = ({ onSuccess }) => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +30,7 @@ const AddReview = ({ onSuccess }) => {
       })
 
       if (!response.ok) {
-        alert("Something went wrong")
+        alert(t("reviews.form.error"))
         return
       }
 
@@ -50,7 +52,7 @@ const AddReview = ({ onSuccess }) => {
       <input
         type="text"
         name="name"
-        placeholder="Your Name"
+        placeholder={t("reviews.form.namePlaceholder")}
         value={formData.name}
         onChange={handleChange}
         className="border p-2 rounded"
@@ -60,7 +62,7 @@ const AddReview = ({ onSuccess }) => {
       <input
         type="email"
         name="email"
-        placeholder="Your Email"
+        placeholder={t("reviews.form.emailPlaceholder")}
         value={formData.email}
         onChange={handleChange}
         className="border p-2 rounded"
@@ -68,7 +70,7 @@ const AddReview = ({ onSuccess }) => {
 
       <textarea
         name="content"
-        placeholder="Your Review"
+        placeholder={t("reviews.form.reviewPlaceholder")}
         value={formData.content}
         onChange={handleChange}
         className="border p-2 rounded"
@@ -95,7 +97,7 @@ const AddReview = ({ onSuccess }) => {
         type="submit"
         className="bg-[var(--color-primary)] text-white py-2 rounded hover:opacity-90 transition"
       >
-        Submit Review
+        {t("reviews.form.submit")}
       </button>
     </form>
   )

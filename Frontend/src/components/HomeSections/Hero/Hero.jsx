@@ -41,7 +41,7 @@ const Hero = () => {
           style={{ backgroundImage: "url('/overlay.svg')" }}
         />
 
-        <div className="relative z-10 pt-[100px] sm:pt-[120px] lg:pt-[140px] pb-[80px] sm:pb-[100px] lg:pb-[130px]">
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-[100px] sm:pt-[120px] lg:pt-[140px] pb-[80px] sm:pb-[100px] lg:pb-[130px]">
 
           <Container>
 
@@ -61,25 +61,28 @@ const Hero = () => {
                 <div className="flex flex-col items-center lg:items-start">
 
                   {/* BOOK BUTTON */}
-                  <a
-                    href="https://visibook.com/soraaesthetics"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button>
-                      <div className="flex items-center gap-3">
-                        <img src="/calendar.svg" className="w-5 h-5" />
-                        {t("hero.button")}
-                      </div>
-                    </Button>
-                  </a>
+                  <div className="inline-flex flex-col items-stretch w-fit">
+                    <a
+                      href="https://visibook.com/soraaesthetics"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-fit"
+                    >
+                      <Button className="w-full">
+                        <div className="flex items-center gap-3 justify-center">
+                          <img src="/calendar.svg" className="w-5 h-5" />
+                          {t("hero.button")}
+                        </div>
+                      </Button>
+                    </a>
 
-                  {/* TRUST SVG */}
-                  <img
-                    src="/trust1.svg"
-                    alt="Trust badges"
-                    className="w-[140px] sm:w-[140px] lg:w-[200px] opacity-90"
-                  />
+                    {/* TRUST SVG */}
+                    <img
+                      src="/trust1.svg"
+                      alt="Trust badges"
+                      className="w-[calc(100%-2px)] mt-3 opacity-90 mx-auto"
+                    />
+                  </div>
 
                 </div>
 
@@ -89,7 +92,9 @@ const Hero = () => {
               {/* RIGHT IMAGE SECTION */}
               <div className="relative flex justify-center lg:justify-end mt-[30px] [direction:ltr]">
 
-                <div className="relative w-[260px] h-[340px] sm:w-[350px] sm:h-[450px] md:w-[420px] md:h-[520px]">
+                <div className="relative w-[260px] sm:w-[350px] md:w-[520px] lg:w-[420px]">
+
+                  <div className="relative h-[280px] sm:h-[380px] md:h-[483px]">
 
                   {/* BIG IMAGE */}
                   <div className="absolute right-0 top-0 w-[220px] h-[280px] sm:w-[300px] sm:h-[380px] md:w-[380px] md:h-[483px] rounded-[40px] sm:rounded-[50px] overflow-hidden">
@@ -117,8 +122,8 @@ const Hero = () => {
                   </div>
 
 
-                  {/* DOTS */}
-                  <div className="hero-dots">
+                    {/* DOTS */}
+                    <div className="hero-dots">
 
                     {heroSlides.map((_, index) => (
 
@@ -137,11 +142,11 @@ const Hero = () => {
 
                     ))}
 
+                    </div>
                   </div>
 
-
                   {/* SOCIAL */}
-                  <div className="hero-socials">
+                  <div className="mt-[2px] w-[220px] sm:w-[300px] md:w-[380px] ml-auto flex justify-center gap-2">
 
                     <a
                       href="https://www.instagram.com/soraaesthetics_"

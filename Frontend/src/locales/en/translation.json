@@ -65,7 +65,7 @@
         "value": "+22 123 456 7890"
       }
     },
-    "button": "Send NOW!"
+    "button": "Book Now"
   },
   "policies": {
   "line1": "Consistency is key for best results",
@@ -159,6 +159,15 @@
 "reviews": {
   "title": "CUSTOMERS\nREVIEWS",
   "subtitle": "See what our customers think about our services",
+  "leaveButton": "Leave a Review",
+  "modalTitle": "Leave Your Review",
+  "form": {
+    "namePlaceholder": "Your Name",
+    "emailPlaceholder": "Your Email",
+    "reviewPlaceholder": "Your Review",
+    "submit": "Submit Review",
+    "error": "Something went wrong"
+  },
 
   "1": {
     "name": "Aigars Silkans",

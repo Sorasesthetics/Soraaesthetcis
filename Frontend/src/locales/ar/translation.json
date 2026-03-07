@@ -65,7 +65,7 @@
         "value": "+22 123 456 7890"
       }
     },
-    "button": "أرسلي الآن!"
+    "button": "احجزي الآن"
   },
 
   "policies": {
@@ -163,6 +163,15 @@
   "reviews": {
     "title": "آراء\nالعملاء",
     "subtitle": "اطلعي على تقييمات عملائنا لخدماتنا",
+    "leaveButton": "اتركي تقييمك",
+    "modalTitle": "اتركي تقييمك",
+    "form": {
+      "namePlaceholder": "الاسم",
+      "emailPlaceholder": "البريد الإلكتروني",
+      "reviewPlaceholder": "اكتبي تقييمك",
+      "submit": "إرسال التقييم",
+      "error": "حدث خطأ ما"
+    },
 
     "1": {
       "name": "Aigars Silkans",
