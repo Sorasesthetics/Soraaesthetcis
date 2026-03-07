@@ -100,7 +100,7 @@ object-fit:cover;
 
 .hero-dots{
 position:absolute;
-bottom:clamp(40px,6vw,70px);
+bottom:30px ;
 left:55%;
 transform:translateX(-50%);
 display:flex;
@@ -133,7 +133,7 @@ gap:18px;
 }
 
 .hero-socials img{
-width:clamp(26px,3vw,36px);
+width:clamp(22px,3vw,26px);
 cursor:pointer;
 transition:transform .3s;
 }

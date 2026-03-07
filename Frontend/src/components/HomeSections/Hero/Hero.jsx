@@ -146,7 +146,7 @@ const Hero = () => {
                   </div>
 
                   {/* SOCIAL */}
-                  <div className="mt-[2px] w-[220px] sm:w-[300px] md:w-[380px] ml-auto flex justify-center gap-2">
+                  <div className="mt-[4px] w-[120px] sm:w-[300px] md:w-[380px] ml-auto flex justify-center gap-2">
 
                     <a
                       href="https://www.instagram.com/soraaesthetics_"
@@ -164,9 +164,7 @@ const Hero = () => {
                       <img src="/face-icon.svg" className="hero-social" />
                     </a>
 
-                    <a href="#">
-                      <img src="/pin-icon.svg" className="hero-social" />
-                    </a>
+           
 
                   </div>
 

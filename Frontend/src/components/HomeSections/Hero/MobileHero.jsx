@@ -99,7 +99,7 @@ className="w-full h-full object-cover"
 
 
 {/* DOTS */}
-<div className="absolute bottom-[30px] md:bottom-[40px] left-2/3 -translate-x-1/2 flex gap-2 md:gap-3">
+<div className="absolute bottom-[30px] md:bottom-[25px] left-2/3 -translate-x-1/2 flex gap-2 md:gap-4 md:left-[65%]">
 
 {heroSlides.map((_,index)=>(
 
