@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Container from "../../ui/Container"
 import { brand } from "../../../config/brand"
+import { apiUrl } from "../../../config/api"
 import { useTranslation } from "react-i18next"
 import AddReview from "./AddReview"
 import "./reviews-mobile.css"
@@ -24,7 +25,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8001/api/reviews/")
+        const response = await fetch(apiUrl("/api/reviews/"))
         if (!response.ok) throw new Error("Failed to fetch reviews")
         const data = await response.json()
         if (Array.isArray(data) && data.length > 0) {
