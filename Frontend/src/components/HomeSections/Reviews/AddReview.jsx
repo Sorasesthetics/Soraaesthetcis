@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import { apiUrl } from "../../../config/api"
 
 const AddReview = ({ onSuccess }) => {
   const { t } = useTranslation()
@@ -21,7 +22,7 @@ const AddReview = ({ onSuccess }) => {
     e.preventDefault()
 
     try {
-      const response = await fetch("http://127.0.0.1:8001/api/reviews/add/", {
+      const response = await fetch(apiUrl("/api/reviews/add/"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

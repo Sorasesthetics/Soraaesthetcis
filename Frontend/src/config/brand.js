@@ -92,6 +92,19 @@ export const brand = {
       items: [{ id: 1 }, { id: 2 }, { id: 3 }],
     },
 
+    galleryFallback: [
+      { media_url: "/hijab1.jpg", caption: "Gallery image 1" },
+      { media_url: "/nails.jpg", caption: "Gallery image 2" },
+      { media_url: "/bride.jpg", caption: "Gallery image 3" },
+      { media_url: "/facial2.jpg", caption: "Gallery image 4" },
+      { media_url: "/pic.jpg", caption: "Gallery image 5" },
+      { media_url: "/pic2.jpg", caption: "Gallery image 6" },
+      { media_url: "/facial.png", caption: "Gallery image 7" },
+      { media_url: "/pic3.jpg", caption: "Gallery image 8" },
+      { media_url: "/pic6.png", caption: "Gallery image 9" },
+      { media_url: "/pic5.png", caption: "Gallery image 10" },
+    ],
+
     services: [
       { id: 1, category: "skincare", image: "/facial.png" },
       { id: 2, category: "skincare", image: "/bride.jpg" },

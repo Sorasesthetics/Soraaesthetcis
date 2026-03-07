@@ -41,7 +41,7 @@ const Hero = () => {
           style={{ backgroundImage: "url('/overlay.svg')" }}
         />
 
-        <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-[100px] sm:pt-[120px] lg:pt-[140px] pb-[80px] sm:pb-[100px] lg:pb-[130px]">
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-[80px] sm:pt-[120px] lg:pt-[140px] pb-[80px] sm:pb-[100px] lg:pb-[130px]">
 
           <Container>
 

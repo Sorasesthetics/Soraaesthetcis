@@ -1,16 +1,28 @@
 import { useEffect, useState } from "react"
 import Container from "../../ui/Container"
 import { useTranslation } from "react-i18next"
+import { brand } from "../../../config/brand"
+import { apiUrl } from "../../../config/api"
 
 const GallerySection = () => {
   const { t } = useTranslation()
-  const [images, setImages] = useState([])
+  const fallbackImages = brand.data.galleryFallback
+  const [images, setImages] = useState(fallbackImages)
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8001/gallery/")
+    fetch(apiUrl("/gallery/"))
       .then(res => res.json())
-      .then(data => setImages(data))
-      .catch(err => console.error(err))
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setImages(data)
+        } else {
+          setImages(fallbackImages)
+        }
+      })
+      .catch(err => {
+        console.error(err)
+        setImages(fallbackImages)
+      })
   }, [])
 
   return (
