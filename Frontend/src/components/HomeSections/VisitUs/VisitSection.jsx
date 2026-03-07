@@ -1,10 +1,29 @@
 import Section from "../../ui/Section"
 import Container from "../../ui/Container"
 import { visitData } from "../../../data/visitData"
+import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 const VisitSection = () => {
   const { t } = useTranslation()
+  const mapRef = useRef(null)
+  const [loadMap, setLoadMap] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadMap(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (mapRef.current) observer.observe(mapRef.current)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <Section className="bg-[#F6F6F6] pl-3">
@@ -39,11 +58,23 @@ const VisitSection = () => {
               </div>
             </div>
 
-            <div className="w-full h-[260px] sm:h-[340px] lg:h-[420px] rounded-[20px] sm:rounded-[28px] overflow-hidden">
-              <img
-                src={visitData.mapImage}
-                className="w-full h-full object-cover"
-              />
+            <div
+              ref={mapRef}
+              className="w-full h-[260px] sm:h-[340px] lg:h-[420px] rounded-[20px] sm:rounded-[28px] overflow-hidden"
+            >
+              {loadMap ? (
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2930.0151415598525!2d-73.76263372430165!3d42.745731871159634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89de0dcdfdc65223%3A0xc8c218236a14e351!2s180%20Old%20Loudon%20Rd%2C%20Latham%2C%20NY%2012110%2C%20USA!5e0!3m2!1sen!2seg!4v1772758005176!5m2!1sen!2seg"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                />
+              ) : (
+                <img
+                  src={visitData.mapImage}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
           </div>

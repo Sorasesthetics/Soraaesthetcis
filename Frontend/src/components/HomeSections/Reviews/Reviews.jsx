@@ -2,23 +2,46 @@ import { useState, useEffect } from "react"
 import Container from "../../ui/Container"
 import { reviewsData } from "../../../data/reviewsData"
 import { useTranslation } from "react-i18next"
+import AddReview from "./AddReview"
 import "./reviews-mobile.css"
 
 const Reviews = () => {
   const { t } = useTranslation()
 
+  const [reviews, setReviews] = useState([])
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const reviews = reviewsData.items.map((item) => ({
+  const fallbackReviews = reviewsData.items.map((item) => ({
     id: item.id,
     name: t(`reviews.${item.id}.name`),
-    text: t(`reviews.${item.id}.text`),
-    rating: t(`reviews.${item.id}.rating`)
+    content: t(`reviews.${item.id}.text`),
+    rating: Number(t(`reviews.${item.id}.rating`)),
   }))
 
   useEffect(() => {
-    if (paused) return
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8001/api/reviews/")
+        if (!response.ok) throw new Error("Failed to fetch reviews")
+        const data = await response.json()
+        if (Array.isArray(data) && data.length > 0) {
+          setReviews(data)
+        } else {
+          setReviews(fallbackReviews)
+        }
+      } catch (error) {
+        console.error("Error fetching reviews:", error)
+        setReviews(fallbackReviews)
+      }
+    }
+
+    fetchReviews()
+  }, [t])
+
+  useEffect(() => {
+    if (paused || reviews.length === 0) return
 
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % reviews.length)
@@ -26,6 +49,8 @@ const Reviews = () => {
 
     return () => clearInterval(interval)
   }, [paused, reviews.length])
+
+  if (reviews.length === 0) return null
 
   const firstReview = reviews[current]
   const secondReview = reviews[(current + 1) % reviews.length]
@@ -45,6 +70,13 @@ const Reviews = () => {
             <p className="text-lg sm:text-xl lg:text-[36px] leading-[1.6] text-[#7A7472] max-w-[500px] mx-auto lg:mx-0">
               {t("reviews.subtitle")}
             </p>
+
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="mt-8 lg:mt-10 bg-[var(--color-primary)] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 transition text-sm sm:text-base"
+            >
+              Leave a Review
+            </button>
           </div>
 
           {/* RIGHT */}
@@ -99,6 +131,30 @@ const Reviews = () => {
         </div>
 
       </Container>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          />
+
+          <div className="relative bg-white p-6 sm:p-10 rounded-3xl w-[500px] max-w-[90%] z-10 shadow-2xl">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-black"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-center text-[var(--color-primary-soft)]">
+              Leave Your Review
+            </h3>
+
+            <AddReview onSuccess={() => setIsModalOpen(false)} />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
@@ -132,7 +188,7 @@ const ReviewCard = ({ review, position, setPaused }) => {
       </h4>
 
       <p className="text-sm sm:text-base leading-relaxed mb-6 lg:mb-8">
-        {review.text}
+        {review.content}
       </p>
 
       <div className="flex justify-center gap-4 lg:gap-6 text-xl lg:text-2xl">
