@@ -1,12 +1,13 @@
 import { useState } from "react"
 import Container from "../../ui/Container"
-import { services } from "../../../data/servicesData"
+import { brand } from "../../../config/brand"
 import ServiceCard from "./ServiceCard"
 import { useTranslation } from "react-i18next"
 
 const Services = () => {
   const { t } = useTranslation()
   const [activeTab, setActiveTab] = useState("skincare")
+  const services = brand.data.services
 
   const filteredServices = services.filter(
     (service) => service.category === activeTab

@@ -1,7 +1,7 @@
 import Section from "../../ui/Section"
 import Container from "../../ui/Container"
 import SectionTitle from "../../ui/SectionTitle"
-import { whyChooseImage, whyChooseFeatures } from "../../../data/whyChooseData"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 import "./whychoose-responsive.css"
 
@@ -9,6 +9,8 @@ const WhyChoose = () => {
 
   const { t, i18n } = useTranslation()
   const isRTL = i18n.language === "ar"
+  const whyChooseImage = brand.data.whyChoose.image
+  const whyChooseFeatures = brand.data.whyChoose.features
 
   return (
 

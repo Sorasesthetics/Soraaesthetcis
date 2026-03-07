@@ -28,18 +28,22 @@ const Home = () => {
     <div>
     <Navbar />
       <Suspense fallback={null}>
-        <AnimatedSection>
-          <Hero />
-        </AnimatedSection>
+        <div id="hero">
+          <AnimatedSection>
+            <Hero />
+          </AnimatedSection>
+        </div>
         <AnimatedSection delay={0.03}>
           <TrustBar />
         </AnimatedSection>
         <AnimatedSection delay={0.05}>
           <WhyChoose />
         </AnimatedSection>
-        <AnimatedSection delay={0.07}>
-          <Services />
-        </AnimatedSection>
+        <div id="services">
+          <AnimatedSection delay={0.07}>
+            <Services />
+          </AnimatedSection>
+        </div>
         <AnimatedSection delay={0.09}>
           <GallerySection />
         </AnimatedSection>

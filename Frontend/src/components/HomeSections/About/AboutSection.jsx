@@ -1,11 +1,12 @@
 import Section from "../../ui/Section"
 import Container from "../../ui/Container"
-import { aboutData } from "../../../data/aboutData"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 
 const AboutSection = () => {
   const { t, i18n } = useTranslation()
   const isRTL = i18n.language === "ar"
+  const aboutData = brand.data.about
 
   const paragraphs = t("about.paragraphs", {
     returnObjects: true

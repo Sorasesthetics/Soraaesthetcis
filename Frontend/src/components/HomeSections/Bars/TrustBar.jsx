@@ -1,11 +1,12 @@
 import Container from "../../ui/Container"
-import { trustData } from "../../../data/trustDate"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 import "./trustbar.css"
 
 const TrustBar = () => {
   const { t, i18n } = useTranslation()
   const isRTL = i18n.language === "ar"
+  const trustData = brand.data.trust
 
   return (
     <div className="trustbar">

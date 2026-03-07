@@ -1,12 +1,15 @@
 import { brand } from "../../config/brand"
 import { useState, useEffect, useRef } from "react"
 import { Globe } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
 import { useTranslation } from "react-i18next"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isNavVisible, setIsNavVisible] = useState(true)
+  const [activeSection, setActiveSection] = useState("hero")
   const lastScrollY = useRef(0)
+  const location = useLocation()
   const { t, i18n } = useTranslation()
 
   const toggleLanguage = () => {
@@ -46,6 +49,53 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isOpen])
 
+  useEffect(() => {
+    if (location.pathname !== "/") {
+      setActiveSection("")
+      return
+    }
+
+    const updateActiveFromHash = () => {
+      const hash = window.location.hash.replace("#", "")
+      if (hash === "services" || hash === "hero") {
+        setActiveSection(hash)
+      }
+    }
+
+    const updateActiveOnScroll = () => {
+      const sections = ["hero", "services"]
+      let current = "hero"
+
+      sections.forEach((id) => {
+        const el = document.getElementById(id)
+        if (!el) return
+        const rect = el.getBoundingClientRect()
+        if (rect.top <= 140 && rect.bottom >= 140) {
+          current = id
+        }
+      })
+
+      setActiveSection(current)
+    }
+
+    updateActiveFromHash()
+    updateActiveOnScroll()
+
+    window.addEventListener("hashchange", updateActiveFromHash)
+    window.addEventListener("scroll", updateActiveOnScroll, { passive: true })
+
+    return () => {
+      window.removeEventListener("hashchange", updateActiveFromHash)
+      window.removeEventListener("scroll", updateActiveOnScroll)
+    }
+  }, [location.pathname])
+
+  const isHomeActive = location.pathname === "/" && activeSection === "hero"
+  const isServicesActive = location.pathname === "/" && activeSection === "services"
+  const isPoliciesActive = location.pathname === "/policies"
+  const activeClass = "text-[var(--color-primary)] font-semibold"
+  const inactiveClass = "text-[#3A3A3A]"
+
   return (
     <>
     <nav
@@ -75,18 +125,33 @@ const Navbar = () => {
         </div>
 
         {/* RIGHT DESKTOP */}
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#3A3A3A]">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
 
-          <a className="text-[var(--color-primary)] font-semibold">
+          <a
+            href="/#hero"
+            className={isHomeActive ? activeClass : inactiveClass}
+          >
             {t("nav.home")}
           </a>
 
-          <a>{t("nav.services")}</a>
+          <a
+            href="/#services"
+            className={isServicesActive ? activeClass : inactiveClass}
+          >
+            {t("nav.services")}
+          </a>
 
-          <a>{t("nav.policies")}</a>
+          <Link
+            to="/policies"
+            className={isPoliciesActive ? activeClass : inactiveClass}
+          >
+            {t("nav.policies")}
+          </Link>
 
           <a
-            href={`https://wa.me/${brand.contact.whatsapp}`}
+            href="https://visibook.com/soraaesthetics"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-4 bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm"
           >
             {t("nav.book")}
@@ -123,20 +188,22 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden px-6 pb-6 flex flex-col gap-5 text-sm font-medium bg-[var(--color-navbar)]">
 
-          <a onClick={() => setIsOpen(false)}>
+          <a href="/#hero" onClick={() => setIsOpen(false)}>
             {t("nav.home")}
           </a>
 
-          <a onClick={() => setIsOpen(false)}>
+          <a href="/#services" onClick={() => setIsOpen(false)}>
             {t("nav.services")}
           </a>
 
-          <a onClick={() => setIsOpen(false)}>
+          <Link to="/policies" onClick={() => setIsOpen(false)}>
             {t("nav.policies")}
-          </a>
+          </Link>
 
           <a
-            href={`https://wa.me/${brand.contact.whatsapp}`}
+            href="https://visibook.com/soraaesthetics"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full text-sm text-center"
           >
             {t("nav.book")}

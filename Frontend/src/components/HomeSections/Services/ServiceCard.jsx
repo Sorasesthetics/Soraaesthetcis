@@ -102,9 +102,15 @@ const ServiceCard = ({ service }) => {
             <span className="text-[#FFA1AD] font-semibold">{price}</span>
           </span>
 
-          <button className="bg-white/20 backdrop-blur-md px-5 lg:px-6 py-2 rounded-full text-[12px] lg:text-sm hover:bg-white/30 transition-all duration-300">
+          <a
+            href="https://visibook.com/soraaesthetics"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white/20 backdrop-blur-md px-5 lg:px-6 py-2 rounded-full text-[12px] lg:text-sm hover:bg-white/30 transition-all duration-300 inline-flex items-center"
+          >
             {t("servicesSection.buttonPrimary")}
-          </button>
+          </a>
         </div>
 
       </div>

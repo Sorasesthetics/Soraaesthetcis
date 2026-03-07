@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
 import Container from "../../ui/Container"
-import { reviewsData } from "../../../data/reviewsData"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 import AddReview from "./AddReview"
 import "./reviews-mobile.css"
 
 const Reviews = () => {
   const { t } = useTranslation()
+  const reviewsData = brand.data.reviews
 
   const [reviews, setReviews] = useState([])
   const [current, setCurrent] = useState(0)

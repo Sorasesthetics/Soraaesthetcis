@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { heroSlides } from "../../../data/heroSlides"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 
 const MobileHero = () => {
 
   const [current, setCurrent] = useState(0)
+  const heroSlides = brand.data.heroSlides
   const { t, i18n } = useTranslation()
   const isRTL = i18n.language === "ar"
 

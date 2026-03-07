@@ -1,11 +1,12 @@
 import Section from "../../ui/Section"
 import Container from "../../ui/Container"
-import { visitData } from "../../../data/visitData"
+import { brand } from "../../../config/brand"
 import { useEffect, useRef, useState } from "react"
 import { useTranslation } from "react-i18next"
 
 const VisitSection = () => {
   const { t } = useTranslation()
+  const visitData = brand.data.visit
   const mapRef = useRef(null)
   const [loadMap, setLoadMap] = useState(false)
 
@@ -92,17 +93,33 @@ const VisitSection = () => {
                     {t(`visit.contacts.${item.id}.title`)}
                   </h4>
 
-                  <p className="text-sm sm:text-base lg:text-[18px] mt-1 sm:mt-2">
-                    {t(`visit.contacts.${item.id}.value`)}
-                  </p>
+                  {item.id === "whatsapp" ? (
+                    <a
+                      href={`https://wa.me/${brand.contact.whatsapp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base lg:text-[18px] mt-1 sm:mt-2 inline-block underline"
+                    >
+                      {t(`visit.contacts.${item.id}.value`)}
+                    </a>
+                  ) : (
+                    <p className="text-sm sm:text-base lg:text-[18px] mt-1 sm:mt-2">
+                      {t(`visit.contacts.${item.id}.value`)}
+                    </p>
+                  )}
                 </div>
 
               </div>
             ))}
 
-            <button className="bg-[var(--color-primary)] text-white py-3 sm:py-4 lg:py-5 px-8 sm:px-12 lg:px-20 rounded-[18px] sm:rounded-[24px] font-semibold text-sm sm:text-base lg:text-lg w-fit">
-              {t("visit.button")}
-            </button>
+            <a
+              href="https://visibook.com/soraaesthetics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[var(--color-primary)] text-white py-3 sm:py-4 lg:py-5 px-8 sm:px-12 lg:px-20 rounded-[18px] sm:rounded-[24px] font-semibold text-sm sm:text-base lg:text-lg w-fit text-center"
+            >
+              Book
+            </a>
 
           </div>
 

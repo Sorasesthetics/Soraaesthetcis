@@ -1,9 +1,10 @@
 import Container from "../../ui/Container"
-import { addonsData } from "../../../data/addonsData"
+import { brand } from "../../../config/brand"
 import { useTranslation } from "react-i18next"
 
 const AddOnsSection = () => {
   const { t } = useTranslation()
+  const addonsData = brand.data.addons
 
   return (
     <section className="relative w-full">
@@ -56,9 +57,14 @@ const AddOnsSection = () => {
                       </span>
                     </span>
 
-                    <button className="bg-white/20 px-5 sm:px-6 py-2 rounded-full hover:bg-white/30 transition text-[var(--color-secondary)] text-[12px] lg:text-base">
+                    <a
+                      href="https://visibook.com/soraaesthetics"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white/20 px-5 sm:px-6 py-2 rounded-full hover:bg-white/30 transition text-[var(--color-secondary)] text-[12px] lg:text-base inline-flex items-center justify-center"
+                    >
                       {t("addons.button")}
-                    </button>
+                    </a>
 
                   </div>
 
