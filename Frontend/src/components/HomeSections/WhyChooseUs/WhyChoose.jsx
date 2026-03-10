@@ -14,7 +14,7 @@ const WhyChoose = () => {
 
   return (
 
-    <Section className="bg-[var(--color-bg-soft)]  pt-5 pl-3">
+    <Section className="bg-[var(--color-bg-soft)]  pt-2 pb-2">
 
       <Container>
 
@@ -44,17 +44,17 @@ const WhyChoose = () => {
 
 
           {/* CONTENT */}
-          <div className={` whychoose-content ${isRTL ? "text-start" : ""}`}>
+          <div className={` whychoose-content pl-3 ${isRTL ? "text-start" : ""}`}>
 
             <SectionTitle
               title={t("whyChoose.title")}
               subtitle={t("whyChoose.subtitle")}
               align={isRTL ? "right" : "left"}
               size="large"
-              className="mb-0 lg:mb-4 [&_h2]:text-[var(--color-secondary)] [&_p:last-child]:mt-1 lg:[&_p:last-child]:mt-6"
+              className="sm:mb-2 lg:mb-4 [&_h2]:text-[var(--color-secondary)] [&_p:last-child]:mt-1 lg:[&_p:last-child]:mt-6"
             />
 
-            <div className="space-y-4 lg:space-y-8 whychoose-features">
+            <div className="space-y-4 lg:space-y-8 whychoose-features sm:mt-[-8px] sm:pt-[-8px] ">
 
               {whyChooseFeatures.map((item) => (
 

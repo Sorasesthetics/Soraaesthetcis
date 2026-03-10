@@ -40,7 +40,7 @@
   .trustbar-inner{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:14px 14px;
+    gap:10px 10px;
     justify-items:start;
   }
 
@@ -70,5 +70,9 @@
     grid-column:1 / span 2;
     justify-self:center;
   }
+  .trust-item img{
+  width:18px;
+  height:18px;
+}
 
 }

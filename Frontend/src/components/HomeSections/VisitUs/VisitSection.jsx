@@ -27,11 +27,10 @@ const VisitSection = () => {
   }, [])
 
   return (
-    <Section className="bg-[#F6F6F6] pl-3">
-      <Container>
+<Section className="bg-[#F6F6F6] pl-3 h-fit pt-8 pb-24 md:pt-10 md:pb-32">      <Container>
 
-        <div className="mb-10 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[var(--color-primary-soft)] mb-4 sm:mb-6">
+        <div className="mb-1 sm:mb-2 ">
+          <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[var(--color-primary-soft)] mb-1 sm:mb-6">
             {t("visit.title")}
           </h2>
 
@@ -43,21 +42,7 @@ const VisitSection = () => {
           {/* LEFT SIDE */}
           <div>
 
-            <div className="flex items-start gap-4 mb-6 sm:mb-6">
-              <img src="/location.svg" className="w-6 h-6 sm:w-7 sm:h-7 mt-1" />
-
-              <div>
-                <h4 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[var(--color-primary)] mb-2 sm:mb-3">
-                  {t("visit.locationLabel")}
-                </h4>
-
-                <p className="text-sm sm:text-base lg:text-[18px] leading-relaxed">
-                  {t("visit.address", { returnObjects: true }).map((line, i) => (
-                    <span key={i}>{line}<br/></span>
-                  ))}
-                </p>
-              </div>
-            </div>
+       
 
             <div
               ref={mapRef}
@@ -81,19 +66,33 @@ const VisitSection = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 pt-0 lg:pt-30">
+          <div className="flex flex-col gap-8 sm:gap-10 lg:gap-12 pt-0 ">
+     <div className="flex items-start gap-4 mb-2 sm:mb-6">
+              <img src="/location.svg" className="w-6 h-6 sm:w-7 sm:h-7 mt-1" />
 
+              <div>
+                <h4 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[var(--color-primary)] mb-2 sm:mb-3">
+                  {t("visit.locationLabel")}
+                </h4>
+
+                <p className="text-sm sm:text-base lg:text-[18px] leading-relaxed">
+                  {t("visit.address", { returnObjects: true }).map((line, i) => (
+                    <span key={i}>{line}<br/></span>
+                  ))}
+                </p>
+              </div>
+            </div>
             {visitData.contacts.map((item) => (
-              <div key={item.id} className="flex items-start gap-4 sm:gap-5">
+              <div key={item.id} className="flex items-start gap-2 sm:gap-4 mt-[-20px] p-0">
 
-                <img src={item.icon} className="w-6 h-6 sm:w-7 sm:h-7 mt-1" />
+                <img src={item.icon} className="w-4 h-4 sm:w-7 sm:h-7 mt-1" />
 
-                <div>
-                  <h4 className="text-xl sm:text-2xl lg:text-[28px] font-bold text-[var(--color-primary)]">
+                <div >
+                  <h4 className="text-xl sm:text-2xl lg:text-[21px] font-bold text-[var(--color-primary)]">
                     {t(`visit.contacts.${item.id}.title`)}
                   </h4>
 
-                  <p className="text-sm sm:text-base lg:text-[18px] mt-1 sm:mt-2">
+                  <p className="text-sm sm:text-base lg:text-[18px]  sm:mt-2">
                     {t(`visit.contacts.${item.id}.value`)}
                   </p>
                 </div>
@@ -105,7 +104,7 @@ const VisitSection = () => {
               href="https://visibook.com/soraaesthetics"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[var(--color-primary)] text-white py-3 sm:py-4 lg:py-5 px-8 sm:px-12 lg:px-20 rounded-[18px] sm:rounded-[24px] font-semibold text-sm sm:text-base lg:text-lg w-fit text-center"
+              className="bg-[var(--color-primary)] text-white py-3 sm:py-4 lg:py-4 px-8 sm:px-12 lg:px-15 rounded-[18px] sm:rounded-[24px] font-semibold text-sm sm:text-base lg:text-lg w-fit text-center"
             >
               {t("visit.button")}
             </a>

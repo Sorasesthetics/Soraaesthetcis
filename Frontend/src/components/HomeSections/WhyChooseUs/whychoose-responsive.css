@@ -31,7 +31,8 @@
     order:3;
     display:flex;
     justify-content:center;
-    gap:8px;
+    gap:6px;
+
     margin-top:16px;
   }
 
@@ -91,7 +92,7 @@
   }
 
   .whychoose-content .whychoose-features{
-    margin-top:0 !important;
+    margin-top:-20px !important;
   }
 
 }

@@ -23,7 +23,7 @@ const AboutSection = () => {
         >
 
           {/* IMAGE */}
-          <div className="relative h-[320px] sm:h-[420px] md:h-[520px] lg:h-[750px]">
+          <div className="relative h-[300px] sm:h-[320px] md:h-[420px] lg:h-[650px]">
             <img
               src={aboutData.image}
               alt=""
@@ -37,12 +37,12 @@ const AboutSection = () => {
               relative bg-white
               p-6  sm:p-10 md:p-14 lg:p-10
               shadow-lg rounded-[20px] sm:rounded-[24px]
-              z-10 left-0 lg:left-[-20%]
+              z-10 left-0 lg:left-[-18%]
               ${isRTL ? "lg:-mr-24 text-start" : "lg:-ml-24"}
             `}
           >
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-medium text-[var(--color-primary-soft)] leading-tight mb-6 sm:mb-8 lg:mb-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[58px] font-medium text-[var(--color-primary-soft)] leading-tight mb-6 sm:mb-8 lg:mb-10">
               {t("about.title")}
             </h2>
 

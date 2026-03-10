@@ -179,7 +179,7 @@ const ReviewCard = ({ review, position, setPaused }) => {
       backdrop-blur-xl
       text-white
       rounded-[30px] lg:rounded-[40px]
-      p-6 sm:p-8 lg:p-10
+      p-6 sm:p-8 lg:p-6
       shadow-2xl
       transition-transform duration-500
       hover:scale-105`}
@@ -189,7 +189,7 @@ const ReviewCard = ({ review, position, setPaused }) => {
         {review.name}
       </h4>
 
-      <p className="text-sm sm:text-base leading-relaxed mb-6 lg:mb-8">
+      <p className="text-sm sm:text-base leading-relaxed mb-2 lg:mb-8">
         {review.content}
       </p>
 

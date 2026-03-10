@@ -7,147 +7,112 @@ import "./hero-responsive.css"
 import MobileHero from "./MobileHero"
 
 const Hero = () => {
-
   const [current, setCurrent] = useState(0)
   const heroSlides = brand.data.heroSlides
-
   const { t, i18n } = useTranslation()
   const isRTL = i18n.language === "ar"
 
   useEffect(() => {
-
     const interval = setInterval(() => {
-      setCurrent(prev => (prev + 1) % heroSlides.length)
+      setCurrent((prev) => (prev + 1) % heroSlides.length)
     }, 2000)
 
     return () => clearInterval(interval)
-
-  }, [])
+  }, [heroSlides.length])
 
   return (
     <>
-    
-      {/* MOBILE HERO */}
-      <section className="lg:hidden h-fit">
+      <section className="lg:hidden">
         <MobileHero />
       </section>
 
-
-      {/* DESKTOP HERO */}
-      <section className={`hidden lg:block h-fit p-17 relative bg-[var(--color-bg-main)] overflow-hidden ${isRTL ? "hero-force-ltr" : ""}`}>
-
+      <section
+        className={`hidden lg:block relative bg-[var(--color-bg-main)] overflow-hidden ${isRTL ? "hero-force-ltr" : ""}`}
+      >
         <div
           className="absolute inset-0 bg-repeat bg-[length:511px] opacity-[1] pointer-events-none"
           style={{ backgroundImage: "url('/overlay.svg')" }}
         />
 
-        <div className="relative z-10 h-full px-4 sm:px-6 lg:px-8 flex items-center">
-
+        <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-10 lg:py-14 xl:py-16">
           <Container>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6  md:gap-5 items-center lg:items-start">
-
-              {/* TEXT */}
-              <div className={`max-w-[800px] text-center  lg:text-left mx-auto lg:mx-0 ${isRTL ? "hero-ar" : ""}`}>
-
-                <h1 className="font-semibold text-3xl sm:text-3xl md:text-4xl lg:text-[72px] leading-[1.05] text-[var(--color-accent)] whitespace-pre-line mb-[24px] sm:mb-[32px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14 items-center">
+              <div
+                className={`max-w-[760px] text-center lg:text-left mx-auto lg:mx-0 ${
+                  isRTL ? "hero-ar" : ""
+                }`}
+              >
+                <h1 className="font-semibold text-4xl lg:text-[56px] xl:text-[68px] leading-[1.05] text-[var(--color-accent)] whitespace-pre-line mb-6">
                   {t("hero.title")}
                 </h1>
 
-                <p className="font-extralight text-sm sm:text-lg md:text-xl lg:text-[25px] text-[var(--color-text-main)] max-w-[760px] mx-auto lg:mx-0 mb-[28px] sm:mb-[40px]">
+                <p className="font-extralight text-base lg:text-xl xl:text-[24px] text-[var(--color-text-main)] max-w-[760px] mx-auto lg:mx-0 mb-8">
                   {t("hero.description")}
                 </p>
 
-                <div className="flex flex-col items-center lg:items-start">
+                <div className="inline-flex flex-col items-stretch w-fit">
+                  <a
+                    href="https://visibook.com/soraaesthetics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-fit"
+                  >
+                    <Button className="w-full">
+                      <div className="flex items-center gap-3 justify-center">
+                        <img src="/calendar.svg" className="w-5 h-5" />
+                        {t("hero.button")}
+                      </div>
+                    </Button>
+                  </a>
 
-                  {/* BOOK BUTTON */}
-                  <div className="inline-flex flex-col items-stretch w-fit">
-                    <a
-                      href="https://visibook.com/soraaesthetics"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-fit"
-                    >
-                      <Button className="w-full">
-                        <div className="flex items-center gap-3 justify-center">
-                          <img src="/calendar.svg" className="w-5 h-5" />
-                          {t("hero.button")}
-                        </div>
-                      </Button>
-                    </a>
-
-                    {/* TRUST SVG */}
-                    <img
-                      src="/trust1.svg"
-                      alt="Trust badges"
-                      className="w-[calc(100%-2px)] mt-3 opacity-90 mx-auto"
-                    />
-                  </div>
-
+                  <img
+                    src="/trust1.svg"
+                    alt="Trust badges"
+                    className="w-[calc(100%-2px)] mt-3 opacity-90 mx-auto"
+                  />
                 </div>
-
               </div>
 
-
-              {/* RIGHT IMAGE SECTION */}
-              <div className="relative flex justify-center lg:justify-end mt-[-4px] [direction:ltr]">
-
-                <div className="relative w-[260px] sm:w-[350px] md:w-[520px] lg:w-[420px]">
-
-                  <div className="relative h-[280px] sm:h-[380px] md:h-[483px]">
-
-                  {/* BIG IMAGE */}
-                  <div className="absolute right-0 top-0 w-[220px] h-[280px] sm:w-[300px] sm:h-[380px] md:w-[380px] md:h-[483px] rounded-[40px] sm:rounded-[50px] overflow-hidden">
-
-                    <img
-                      key={heroSlides[current].main}
-                      src={heroSlides[current].main}
-                      alt=""
-                      className="w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 animate-fadeIn"
-                    />
-
-                  </div>
-
-
-                  {/* SMALL IMAGE */}
-                  <div className="absolute -left-[20px] top-[20px] sm:-left-[60px] sm:top-[45px] md:-left-[100px] md:top-[53px] w-[150px] h-[190px] sm:w-[220px] sm:h-[280px] md:w-[268px] md:h-[335px] rounded-[30px] sm:rounded-[40px] overflow-hidden shadow-xl">
-
-                    <img
-                      key={current + "-secondary"}
-                      src={heroSlides[current].secondary}
-                      alt=""
-                      className="w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 animate-fadeIn"
-                    />
-
-                  </div>
-
-
-                    {/* DOTS */}
-                    <div className="hero-dots">
-
-                    {heroSlides.map((_, index) => (
-
-                      <div
-                        key={index}
-                        className={`
-                        w-2 h-2 sm:w-3 sm:h-3 rounded-full border border-white
-                        transition-all duration-500 ease-in-out
-                        ${
-                          current === index
-                            ? "bg-white scale-110"
-                            : "bg-transparent opacity-60"
-                        }
-                        `}
+              <div className="relative flex justify-center lg:justify-end [direction:ltr]">
+                <div className="relative w-[300px] xl:w-[420px]">
+                  <div className="relative h-[360px] xl:h-[483px]">
+                    <div className="absolute right-0 top-0 w-[240px] h-[320px] xl:w-[380px] xl:h-[483px] rounded-[40px] xl:rounded-[50px] overflow-hidden">
+                      <img
+                        key={heroSlides[current].main}
+                        src={heroSlides[current].main}
+                        alt=""
+                        className="w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 animate-fadeIn"
                       />
+                    </div>
 
-                    ))}
+                    <div className="absolute -left-[30px] top-[24px] xl:-left-[100px] xl:top-[53px] w-[170px] h-[220px] xl:w-[268px] xl:h-[335px] rounded-[30px] xl:rounded-[40px] overflow-hidden shadow-xl">
+                      <img
+                        key={`${current}-secondary`}
+                        src={heroSlides[current].secondary}
+                        alt=""
+                        className="w-full h-full object-cover transition-all duration-500 ease-in-out opacity-100 animate-fadeIn"
+                      />
+                    </div>
 
+                    <div className="hero-dots">
+                      {heroSlides.map((_, index) => (
+                        <div
+                          key={index}
+                          className={`
+                            w-2 h-2 sm:w-3 sm:h-3 rounded-full border border-white
+                            transition-all duration-500 ease-in-out
+                            ${
+                              current === index
+                                ? "bg-white scale-110"
+                                : "bg-transparent opacity-60"
+                            }
+                          `}
+                        />
+                      ))}
                     </div>
                   </div>
 
-                  {/* SOCIAL */}
-                  <div className="mt-[4px] w-[70px] sm:w-[300px] md:w-[380px] ml-auto flex justify-center gap-2">
-
+                  <div className="mt-[2px] w-[240px] xl:w-[380px] ml-auto flex justify-center gap-2">
                     <a
                       href="https://www.instagram.com/soraaesthetics_"
                       target="_blank"
@@ -163,23 +128,13 @@ const Hero = () => {
                     >
                       <img src="/face-icon.svg" className="hero-social" />
                     </a>
-
-           
-
                   </div>
-
                 </div>
-
               </div>
-
             </div>
-
           </Container>
-
         </div>
-
       </section>
-
     </>
   )
 }

@@ -2,16 +2,15 @@ import { brand } from "../../config/brand"
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-footer-bg)] py-16 text-center border-t border-[var(--color-primary)]">
-
+<footer className="bg-[var(--color-footer-bg)] pt-1 pb-6 md:pt-1 md:pb-1 text-center border-t border-[var(--color-primary)]">
       <div className="max-w-screen-md mx-auto flex flex-col items-center">
 
         {/* BRAND NAME */}
-        <h2 className="text-[36px] tracking-[0.4em] text-[var(--color-footer-title)] font-light">
+        <h2 className="text-[28px] tracking-[0.4em] text-[var(--color-footer-title)] font-light">
           {brand.name}
         </h2>
 
-        <p className="text-xs tracking-[0.5em] text-[var(--color-footer-title)] mt-2">
+        <p className="text-xs tracking-[0.5em] text-[var(--color-footer-title)] mt-1">
           {brand.subName}
         </p>
 
@@ -19,11 +18,11 @@ const Footer = () => {
         <img
           src={brand.logo.value}
           alt={brand.name}
-          className="h-20 mt-6"
+          className="h-18 mt-1"
         />
 
         {/* SLOGAN */}
-        <p className="mt-6 text-sm text-[var(--color-footer-title)]">
+        <p className="mt-1 text-sm text-[var(--color-footer-title)]">
           {brand.footer.slogan}
         </p>
 
