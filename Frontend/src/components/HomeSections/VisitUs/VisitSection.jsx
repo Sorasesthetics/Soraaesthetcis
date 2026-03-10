@@ -27,7 +27,7 @@ const VisitSection = () => {
   }, [])
 
   return (
-<Section className="bg-[#F6F6F6] pl-3 h-fit pt-8 pb-24 md:pt-10 md:pb-32">      <Container>
+<Section className="bg-[#F6F6F6] pl-3 h-fit pt-8 pb-12 md:pt-10 md:pb-12">      <Container>
 
         <div className="mb-1 sm:mb-2 ">
           <h2 className="text-3xl sm:text-4xl lg:text-[48px] font-semibold text-[var(--color-primary-soft)] mb-1 sm:mb-6">
