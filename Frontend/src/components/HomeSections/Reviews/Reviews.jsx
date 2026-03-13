@@ -189,17 +189,17 @@ const ReviewCard = ({ review, position, setPaused, isRTL }) => {
       backdrop-blur-xl
       text-white
       rounded-[30px] lg:rounded-[40px]
-      p-6 sm:p-8 lg:p-6
+      p-5 sm:p-5 lg:p-5
       shadow-2xl
       transition-transform duration-500
       hover:scale-105`}
     >
 
-      <h4 className={`text-xl lg:text-2xl font-semibold mb-4 lg:mb-6 ${isRTL ? "text-right" : ""}`}>
+      <h4 className={`text-xl lg:text-2xl font-semibold mb-4 lg:mb-4 ${isRTL ? "text-right" : ""}`}>
         {review.name}
       </h4>
 
-      <p className={`text-sm sm:text-base leading-relaxed mb-2 lg:mb-8 ${isRTL ? "text-right" : ""}`}>
+      <p className={`text-sm sm:text-base leading-relaxed mb-2 lg:mb-2 ${isRTL ? "text-right" : ""}`}>
         {review.content}
       </p>
 
