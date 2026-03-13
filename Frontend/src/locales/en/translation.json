@@ -139,48 +139,46 @@
   "1": {
     "title": "Dermaplaning",
     "desc": "Gently removes dead skin and peach fuzz to reveal smoother, brighter skin and allow products to penetrate more effectively.",
-    "duration": "60 min",
+    "duration": "30 min",
     "price": "$15"
   },
 
   "2": {
     "title": "Red LED Light Therapy",
     "desc": "Helps calm inflammation, promote healing, and support collagen production. Ideal for acne, sensitivity, and post-treatment recovery.",
-    "duration": "60 min",
+    "duration": "30 min",
     "price": "$15"
   }
 },
 "reviews": {
   "title": "CUSTOMERS\nREVIEWS",
   "subtitle": "See what our customers think about our services",
-  "leaveButton": "Leave a Review",
-  "modalTitle": "Leave Your Review",
-  "form": {
-    "namePlaceholder": "Your Name",
-    "emailPlaceholder": "Your Email",
-    "reviewPlaceholder": "Your Review",
-    "submit": "Submit Review",
-    "error": "Something went wrong"
-  },
 
   "1": {
-    "name": "Aigars Silkans",
-    "text": "This is my first time getting a facial and Shaima did not disappoint! Her energy was amazing.",
-    "rating": 3
+    "name": "Cecelia",
+    "text": "This is my first time getting a facial and Shaima did not disappoint! Her energy was amazing, and made me completely comfortable, while also being able to explain anything to me that I had questions on. The facial was so good I fell asleep in the middle of it and in the end I loved the results. I will definitely be going back!!",
+    "rating": 5
   },
 
   "2": {
-    "name": "Maria Johnson",
-    "text": "Absolutely loved the experience! The environment was calming and the results were visible immediately.",
+    "name": "Abby",
+    "text": "After my facial at SŌRA my skin feels and looks so so good i can’t express enough how amazing she did. I am GLOWING, I feel so relaxed and refreshed that was truly the best experience im already so excited for my next appointment! Thank you thank you thank you!!!!",
     "rating": 5
   },
 
   "3": {
-    "name": "Lina Ahmed",
-    "text": "Professional, clean, and so relaxing. I will definitely book again!",
-    "rating": 4
+    "name": "Noor",
+    "text": "Thank you so very much to SŌRA I’m in love with my facial! My face feels so clean, bright, and refreshed. Thank you so much for such an amazing service!",
+    "rating": 5
+  },
+
+  "4": {
+    "name": "Mars",
+    "text": "Shay knows her craft and it shows so clearly. She is so welcoming and makes sure to start by covering what goals you have with your skin or any concerns you've been having. She'll go above and beyond to achieve them, and will make you feel relaxed and comfortable the entire time. I loved my experience and can't wait to go back for my next facial. The products she uses are gentle and so is she!",
+    "rating": 5
   }
-},
+}, 
+
 "trust": {
   "1": "Hijab-friendly & private environment",
   "2": "No CCTV – Full Privacy",

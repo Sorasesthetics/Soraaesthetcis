@@ -3,7 +3,7 @@ import Container from "../../ui/Container"
 import { brand } from "../../../config/brand"
 import { apiUrl } from "../../../config/api"
 import { useTranslation } from "react-i18next"
-import AddReview from "./AddReview"
+// import AddReview from "./AddReview"
 import "./reviews-mobile.css"
 
 const Reviews = () => {
@@ -15,7 +15,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([])
   const [current, setCurrent] = useState(0)
   const [paused, setPaused] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  // const [isModalOpen, setIsModalOpen] = useState(false)
 
   const fallbackReviews = reviewsData.items.map((item) => ({
     id: item.id,
@@ -67,7 +67,8 @@ const Reviews = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
           {/* LEFT */}
-<div className={`text-center ${isRTL ? "lg:text-right lg:mr-0 lg:ml-auto" : "lg:text-left"}`}>            <h2 className="text-4xl sm:text-5xl lg:text-[86px] leading-[1.05] lg:leading-[0.95] font-semibold text-[var(--color-primary-soft)] mb-8 lg:mb-12 whitespace-pre-line">
+          <div className={`text-center ${isRTL ? "lg:text-right lg:mr-0 lg:ml-auto" : "lg:text-left"}`}>
+            <h2 className="text-4xl sm:text-5xl lg:text-[86px] leading-[1.05] lg:leading-[0.95] font-semibold text-[var(--color-primary-soft)] mb-8 lg:mb-12 whitespace-pre-line">
               {t("reviews.title")}
             </h2>
 
@@ -75,12 +76,15 @@ const Reviews = () => {
               {t("reviews.subtitle")}
             </p>
 
+            {/* Leave Review Button Disabled */}
+            {/*
             <button
               onClick={() => setIsModalOpen(true)}
               className="mt-8 lg:mt-10 bg-[var(--color-primary)] text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 transition text-sm sm:text-base"
             >
               {t("reviews.leaveButton")}
             </button>
+            */}
           </div>
 
           {/* RIGHT */}
@@ -96,10 +100,8 @@ const Reviews = () => {
               />
 
               <div className="reviews-mobile-overlay absolute inset-0 flex flex-col justify-center">
-
                 <ReviewCard review={firstReview} isRTL={isRTL} />
                 <ReviewCard review={secondReview} isRTL={isRTL} />
-
               </div>
 
             </div>
@@ -135,6 +137,8 @@ const Reviews = () => {
 
       </Container>
 
+      {/* Review Modal Disabled */}
+      {/*
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
 
@@ -162,6 +166,7 @@ const Reviews = () => {
 
         </div>
       )}
+      */}
     </section>
   )
 }
@@ -190,11 +195,12 @@ const ReviewCard = ({ review, position, setPaused, isRTL }) => {
       hover:scale-105`}
     >
 
-     <h4 className={`text-xl lg:text-2xl font-semibold mb-4 lg:mb-6 ${isRTL ? "text-right" : ""}`}>
+      <h4 className={`text-xl lg:text-2xl font-semibold mb-4 lg:mb-6 ${isRTL ? "text-right" : ""}`}>
         {review.name}
       </h4>
 
-<p className={`text-sm sm:text-base leading-relaxed mb-2 lg:mb-8 ${isRTL ? "text-right" : ""}`}>        {review.content}
+      <p className={`text-sm sm:text-base leading-relaxed mb-2 lg:mb-8 ${isRTL ? "text-right" : ""}`}>
+        {review.content}
       </p>
 
       <div className="flex justify-center gap-4 lg:gap-6 text-xl lg:text-2xl">
