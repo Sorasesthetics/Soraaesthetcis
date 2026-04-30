@@ -96,6 +96,7 @@ const VisitSection = () => {
                     {t(`visit.contacts.${item.id}.value`)}
                   </p>
                 </div>
+                
 
               </div>
             ))}

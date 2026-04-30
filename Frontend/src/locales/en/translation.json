@@ -50,9 +50,13 @@
         "title": "Only By Reservation",
         "value": ""
       },
+      "Call Us":{
+        "title":"Call Us",
+        "value":"(518) 250-9708"
+      },
       "email": {
         "title": "Email",
-        "value": "Sora.aesthetics@gmail.com"
+        "value": "Sora_asesthetics@gmail.com"
       },
       "instagram": {
         "title": "Instagram",
@@ -74,7 +78,7 @@
     "title": "HydraSilk Facial",
     "desc": "A deeply nourishing treatment designed to replenish moisture, restore the skin barrier, and leave the skin soft, plump, and luminous.",
     "bestFor": ["Dry skin", "Dehydrated skin", "Dull or tight skin"],
-    "duration": "60 min",
+    "duration": "90 min",
     "price": "$120"
   },
 
@@ -82,7 +86,7 @@
     "title": "Pure Balance Facial",
     "desc": "A refining facial focused on regulating oil production, clearing congestion, and rebalancing the skin without over-stripping.",
     "bestFor": ["Oily skin", "Combination", "Congested skin types"],
-    "duration": "60 min",
+    "duration": "90 min",
     "price": "$120"
   },
 
@@ -90,14 +94,14 @@
     "title": "The Signature SORA Facial",
     "desc": "A luxury customized treatment tailored to your skin’s unique needs, combining hydration, correction, and glow-enhancing techniques.",
     "bestFor": ["All skin types", "First-time clients", "Skin maintenance"],
-    "duration": "60 min",
+    "duration": "90 min",
     "price": "$130"
   },
 
   "4": {
     "title": "Acne Restoration Facial",
     "desc": "A corrective treatment designed for ongoing acne management, targeting active breakouts, inflammation and post-acne marks.",
-    "duration": "60 min",
+    "duration": "90 min",
     "price": "$120",
     "badge": {
       "text": "Not for first-time clients",

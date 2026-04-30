@@ -132,13 +132,9 @@ const Hero = () => {
                       <img src="/insta-icon.svg" className="hero-social" />
                     </a>
 
-                    <a
-                      href="https://web.facebook.com/SoraAesthetics"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <img src="/face-icon.svg" className="hero-social" />
-                    </a>
+                  <a href="tel:+15182509708">
+  <img src="/phone-icon.svg" className="hero-social" />
+</a>
                   </div>
 
                 </div>

@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react"
 import { motion } from "framer-motion"
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
+import { Helmet } from "react-helmet-async";
 
 const HeroImport = () => import("../components/HomeSections/Hero/Hero")
 const Hero = lazy(HeroImport)
@@ -27,6 +28,18 @@ const AnimatedSection = ({ children, delay = 0 }) => (
 
 const Home = () => {
   return (
+    <>
+       <Helmet>
+        <title>SōRA Aesthetics | Luxury Facials in Latham NY</title>
+
+        <meta
+          name="description"
+          content="Luxury facials, waxing, and skincare treatments in Latham, NY."
+        />
+
+        <meta property="og:title" content="SORA Aesthetics" />
+        <meta property="og:image" content="/preview.png" />
+      </Helmet>
     <div className="min-h-screen flex flex-col">
       <Navbar />
 
@@ -72,6 +85,7 @@ const Home = () => {
 
       <Footer />
     </div>
+    </>
   )
 }
 

@@ -96,13 +96,9 @@ const MobileHero = () => {
             <img src="/insta-icon.svg" className="w-6 md:w-7" />
           </a>
 
-          <a
-            href="https://web.facebook.com/SoraAesthetics"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/face-icon.svg" className="w-6 md:w-7" />
-          </a>
+                   <a href="tel:+15182509708">
+  <img src="/phone-icon.svg" className="w-6 md:w-7" />
+</a>
         </div>
       </div>
     </section>

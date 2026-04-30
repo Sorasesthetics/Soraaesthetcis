@@ -18,9 +18,11 @@ export const brand = {
     visit: {
       mapImage: "/map.png",
       contacts: [
-        { id: "reservation", icon: "/calendar-clock.svg" },
+        { id: "reservation", icon: "/calendar-clock.svg" }, 
+        {id: "Call Us", icon: "/phone.svg" },
         { id: "email", icon: "/email.svg" },
-        { id: "instagram", icon: "/insta.svg" },
+        { id: "instagram", icon: "/insta.svg" }
+       
       ],
     },
 
